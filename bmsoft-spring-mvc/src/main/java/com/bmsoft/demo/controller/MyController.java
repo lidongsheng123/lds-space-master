@@ -59,6 +59,7 @@ public class MyController {
 
     private ModelAndView out(HttpServletResponse resp, String str) {
         try {
+            resp.setContentType("text/html;charset=UTF-8");
             resp.getWriter().write(str);
         } catch (IOException e) {
             e.printStackTrace();

@@ -44,7 +44,7 @@ public class ViewResolver {
                         if (null == paramValue) {
                             continue;
                         }
-                        line = line.replaceAll("￥\\{" + paramName + "\\}", paramValue.toString());
+                        line = line.replaceAll("#\\{" + paramName + "\\}", paramValue.toString());
                         line = new String(line.getBytes("utf-8"), "ISO-8859-1");
                     }
                 }
@@ -58,7 +58,7 @@ public class ViewResolver {
     }
 
     private Matcher matcher(String str) {
-        Pattern pattern = Pattern.compile("￥\\{(.+?)\\}", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("#\\{(.+?)\\}", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(str);
         return matcher;
     }

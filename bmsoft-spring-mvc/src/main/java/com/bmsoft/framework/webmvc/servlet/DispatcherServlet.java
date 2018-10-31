@@ -40,11 +40,11 @@ public class DispatcherServlet extends HttpServlet {
     //课后再去思考一下这样设计的经典之处
     //  HandlerMapping最核心的设计，也是最经典的
     //它牛B到直接干掉了Struts、Webwork等MVC框架
-    private List<HandlerMapping> handlerMappings = new ArrayList<HandlerMapping>();
+    private List<HandlerMapping> handlerMappings = new ArrayList<>();
 
-    private Map<HandlerMapping, HandlerAdapter> handlerAdapters = new HashMap<HandlerMapping, HandlerAdapter>();
+    private Map<HandlerMapping, HandlerAdapter> handlerAdapters = new HashMap<>();
 
-    private List<ViewResolver> viewResolvers = new ArrayList<ViewResolver>();
+    private List<ViewResolver> viewResolvers = new ArrayList<>();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
