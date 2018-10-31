@@ -52,7 +52,7 @@ public class DispatcherServlet extends HttpServlet {
         //相当于把IOC容器初始化了
         ApplicationContext context = new ApplicationContext(config.getInitParameter(LOCATION));
 
-
+        //初始化九大组件
         initStrategies(context);
 
     }

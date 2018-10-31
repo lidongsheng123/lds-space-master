@@ -254,7 +254,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
     }
 
     public String[] getBeanDefinitionNames() {
-        return this.beanDefinitionMap.keySet().toArray(new String[this.beanDefinitionMap.size()]);
+        return this.beanDefinitionMap.keySet().toArray(new String[this.getBeanDefinitionCount()]);
     }
 
     public int getBeanDefinitionCount() {
