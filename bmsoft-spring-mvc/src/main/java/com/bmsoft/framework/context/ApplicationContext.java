@@ -37,7 +37,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
     private Map<String, Object> beanCacheMap = new ConcurrentHashMap<>();
 
     //用来存储所有的被代理过的对象
-    private Map<String, BeanWrapper> beanWrapperMap = new ConcurrentHashMap<String, BeanWrapper>();
+    private Map<String, BeanWrapper> beanWrapperMap = new ConcurrentHashMap<>();
 
 
     public ApplicationContext(String... configLocations) {

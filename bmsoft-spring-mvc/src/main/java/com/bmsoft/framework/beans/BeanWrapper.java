@@ -14,6 +14,14 @@ import com.bmsoft.framework.core.FactoryBean;
 public class BeanWrapper extends FactoryBean {
 
     private AopProxy aopProxy = new AopProxy();
+    //还会用到  观察者  模式
+    //1、支持事件响应，会有一个监听
+    private BeanPostProcessor postProcessor;
+
+    private Object wrapperInstance;
+    //原始的通过反射new出来，要把包装起来，存下来
+    private Object originalInstance;
+
 
     public BeanPostProcessor getPostProcessor() {
         return postProcessor;
@@ -23,13 +31,6 @@ public class BeanWrapper extends FactoryBean {
         this.postProcessor = postProcessor;
     }
 
-    //还会用到  观察者  模式
-    //1、支持事件响应，会有一个监听
-    private BeanPostProcessor postProcessor;
-
-    private Object wrapperInstance;
-    //原始的通过反射new出来，要把包装起来，存下来
-    private Object originalInstance;
 
     public BeanWrapper(Object instance) {
         //从这里开始，我们要把动态的代码添加进来了

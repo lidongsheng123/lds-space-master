@@ -242,14 +242,11 @@ public class DispatcherServlet extends HttpServlet {
 
         HandlerAdapter ha = getHandlerAdapter(handler);
 
-
         //这一步只是调用方法，得到返回值
         ModelAndView mv = ha.handle(req, resp, handler);
 
-
         //这一步才是真的输出
         processDispatchResult(resp, mv);
-
 
     }
 

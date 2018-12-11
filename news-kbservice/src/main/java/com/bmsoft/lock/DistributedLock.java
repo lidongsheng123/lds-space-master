@@ -15,7 +15,6 @@ import java.util.UUID;
 public class DistributedLock {
 
     //获得锁
-
     /**
      * @param lockName       锁的名词
      * @param acquireTimeout 获得锁的超时时间
