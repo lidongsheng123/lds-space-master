@@ -1,8 +1,11 @@
 package com.bmsoft.design.Strategy;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by 李东升 on 2019/1/30.
  */
+@Component
 public class CreditCard extends Card {
 
 
