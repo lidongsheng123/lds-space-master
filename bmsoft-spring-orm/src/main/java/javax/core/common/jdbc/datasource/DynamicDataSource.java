@@ -1,5 +1,6 @@
 package javax.core.common.jdbc.datasource;
 
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /** 
@@ -7,7 +8,8 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
  *  
  * @author Tom 
  *  
- */  
+ */
+
 public class DynamicDataSource extends AbstractRoutingDataSource {  
 
     //entry的目的，主要是用来给每个数据源打个标记
