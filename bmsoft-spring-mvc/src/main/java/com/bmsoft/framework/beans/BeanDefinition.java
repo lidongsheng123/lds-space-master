@@ -11,6 +11,9 @@ import lombok.Data;
  */
 @Data
 public class BeanDefinition {
+    /**
+     * bean 全类名
+     */
     private String beanClassName;
     private boolean lazyInit = false;
     private String factoryBeanName;

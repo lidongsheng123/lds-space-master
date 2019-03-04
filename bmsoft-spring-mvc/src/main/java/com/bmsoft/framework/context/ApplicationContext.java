@@ -122,7 +122,9 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
 
     }
 
-    //真正的将BeanDefinitions注册到beanDefinitionMap中
+    /**
+     * 真正的将BeanDefinitions注册到beanDefinitionMap中
+     */
     private void doRegisty(List<String> beanDefinitions) {
         //beanName有三种情况:
         //1、默认是类名首字母小写
@@ -173,6 +175,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
         try {
             //生成通知事件
             BeanPostProcessor beanPostProcessor = new BeanPostProcessor();
+
             //根据类信息获取类对象
             Object instance = instantionBean(beanDefinition);
 
@@ -188,6 +191,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
 
             beanWrapper.setAopConfig(instantionAopConfig(beanDefinition));
 
+            //设置通知
             beanWrapper.setPostProcessor(beanPostProcessor);
 
             this.beanWrapperMap.put(beanName, beanWrapper);
@@ -220,8 +224,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
         Class aspectClass = Class.forName(before[0]);
         //在这里得到的方法都是原生的方法
         for (Method m : clazz.getMethods()) {
-            //public .* com\.gupaoedu\.vip\.spring\.demo\.service\..*Service\..*\(.*\)
-            //public java.lang.String com.gupaoedu.vip.spring.demo.service.impl.ModifyService.add(java.lang.String,java.lang.String)
+            //public .* com.bmsoft.demo.service.service\..*Service\..*\(.*\)
             Matcher matcher = pattern.matcher(m.toString());
             if (matcher.matches()) {
                 //能满足切面规则的类，添加的AOP配置中

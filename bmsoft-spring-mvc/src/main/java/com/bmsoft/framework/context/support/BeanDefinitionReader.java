@@ -21,10 +21,14 @@ import java.util.Properties;
 public class BeanDefinitionReader {
 
     private Properties config = new Properties();
+    /**
+     * 用于存放类的全名称的
+     */
+    private List<String> registyBeanClasses = new ArrayList<>();
 
-    private List<String> registyBeanClasses = new ArrayList<>();//用于存放类的全名称的
-
-    //在配置文件中，用来获取自动扫描的包名的key
+    /**
+     * 在配置文件中，用来获取自动扫描的包名的key
+     */
     private final String SCAN_PACKAGE = "scanPackage";
 
     public BeanDefinitionReader(String... locations) {
@@ -65,7 +69,9 @@ public class BeanDefinitionReader {
         return null;
     }
 
-    //递归扫描所有的相关联的class，并且保存到一个List中
+    /**
+     * 递归扫描所有的相关联的class，并且保存到一个List中
+     */
     private void doScanner(String packageName) {
 
         URL url = BeanDefinitionReader.class.getClassLoader().getResource(packageName.replaceAll("\\.", "/"));

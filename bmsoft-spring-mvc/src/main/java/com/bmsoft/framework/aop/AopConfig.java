@@ -14,7 +14,7 @@ import java.util.Map;
 public class AopConfig {
 
     //以目标对象需要增强的Method作为key，需要增强的代码内容作为value
-    private Map<Method, Aspect> points = new HashMap<Method, Aspect>();
+    private Map<Method, Aspect> points = new HashMap<>();
 
     public void put(Method target, Object aspect, Method[] points) {
         this.points.put(target, new Aspect(aspect, points));
