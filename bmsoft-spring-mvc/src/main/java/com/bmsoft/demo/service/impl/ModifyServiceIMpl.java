@@ -16,7 +16,9 @@ public class ModifyServiceIMpl implements IModifyService {
     /**
      * 增加
      */
+
     public String add(String name, String addr) {
+
         return "modifyService add,name=" + name + ",addr=" + addr;
     }
 

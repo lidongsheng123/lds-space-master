@@ -13,8 +13,11 @@ import com.bmsoft.framework.context.ApplicationContext;
 public class TestDemo {
 
     public static void main(String[] args) {
+
         ApplicationContext context = new ApplicationContext("classpath:application.properties");
+
         Object modifyServiceIMpl = context.getBean("modifyServiceIMpl");
+
         System.out.println(modifyServiceIMpl.toString());
     }
 }

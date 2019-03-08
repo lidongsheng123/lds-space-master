@@ -23,6 +23,7 @@ public class UserDao extends BaseDaoSupport<User, Long> {
     private DynamicDataSource dataSource;
 
     @Resource(name = "dynamicDataSource")
+    @Override
     public void setDataSource(DataSource dataSource) {
         this.dataSource = (DynamicDataSource) dataSource;
         this.setDataSourceReadOnly(dataSource);
@@ -52,7 +53,7 @@ public class UserDao extends BaseDaoSupport<User, Long> {
         //构建一个QureyRule 查询规则
         QueryRule queryRule = QueryRule.getInstance();
         //查询一个name= 赋值 结果，List
-        queryRule.andGreaterEqual("age",age);
+        queryRule.andGreaterEqual("age", age);
         //相当于自己再拼SQL语句
         return super.select(queryRule);
     }

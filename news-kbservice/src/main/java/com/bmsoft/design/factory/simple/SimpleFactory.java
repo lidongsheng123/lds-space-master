@@ -21,5 +21,6 @@ public class SimpleFactory {
             System.out.println("不能生产您所需的产品");
             return null;
         }
+
     }
 }

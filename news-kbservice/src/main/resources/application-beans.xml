@@ -1,0 +1,34 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!--  setter注入方式-->
+    <bean id="car" class="com.bmsoft.entity.Car" scope="singleton">
+        <property name="brand">
+            <value>奔驰</value>
+        </property>
+    </bean>
+
+    <!-- 构造器注入方式-->
+    <bean id="user" class="com.bmsoft.entity.User">
+        <constructor-arg index="0" type="java.lang.Long">
+            <value>1</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.String">
+            <value>张三</value>
+        </constructor-arg>
+        <constructor-arg index="2" type="java.lang.Integer">
+            <value>20</value>
+        </constructor-arg>
+    </bean>
+
+    <!--工厂方法注入方法-->
+    <bean id="carFactory" class="com.bmsoft.entity.CarFactory"/>
+
+    <bean id="car1" factory-bean="carFactory"
+          factory-method="createHongQiCar">
+    </bean>
+</beans>

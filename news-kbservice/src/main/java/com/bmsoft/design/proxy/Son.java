@@ -14,7 +14,7 @@ public class Son implements PerSon {
     public void findLove() {
         //我没有时间
         //工作忙
-        System.out.println("son---------找对象，肤白貌美大长腿");
+        System.out.println("son---------找对象，肤白貌美");
     }
 
     @Override

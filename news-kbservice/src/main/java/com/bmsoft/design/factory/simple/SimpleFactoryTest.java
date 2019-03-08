@@ -2,6 +2,8 @@ package com.bmsoft.design.factory.simple;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.HashMap;
+
 /**
  * @program: lds-space-master
  * @description: 简单工厂测试类
@@ -22,6 +24,6 @@ public class SimpleFactoryTest {
          * Spring 中的 BeanFactory 就是简单工厂模式的体现，根据传入一个唯一的标识来获得 Bean
          */
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
-        System.out.println(context.getBean("user").toString());
+        context.getBean("car");
     }
 }

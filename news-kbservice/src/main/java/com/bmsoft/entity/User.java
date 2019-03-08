@@ -30,5 +30,9 @@ public class User implements Serializable {
     @Column(name = "age")
     private Integer age;
 
-
+    public User(Long id, String name, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 }

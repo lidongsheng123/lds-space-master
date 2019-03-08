@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 public class BMMeiPo implements BMInvocationHandler {
 
 
-    /**
+    /**3
      * 被代理的对象，把引用给保存下来
      */
     private PerSon target;

@@ -2,7 +2,9 @@ package com.bmsoft.design.proxy.dynamic.jdk;
 
 import com.bmsoft.design.proxy.PerSon;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
@@ -16,10 +18,14 @@ public class JDKMeipo implements InvocationHandler {
 
     private PerSon target;
 
-    public Object getInstance(PerSon target) {
+    public Object getInstance(PerSon target) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 
         this.target = target;
+
         Class<? extends PerSon> clazz = target.getClass();
+
+        Method addd = clazz.getMethod("addd");
+
         return Proxy.newProxyInstance(clazz.getClassLoader(), clazz.getInterfaces(), this);
     }
 

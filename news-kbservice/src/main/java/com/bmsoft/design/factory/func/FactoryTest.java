@@ -11,5 +11,8 @@ public class FactoryTest {
 
         Factory factory = new TelunsuFactory();
         System.out.println(factory.getMilk());
+
+
+
     }
 }
