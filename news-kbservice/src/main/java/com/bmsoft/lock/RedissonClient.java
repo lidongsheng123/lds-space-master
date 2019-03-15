@@ -1,6 +1,7 @@
 package com.bmsoft.lock;
 
 import org.redisson.Redisson;
+import org.redisson.api.RLock;
 import org.redisson.config.Config;
 
 /**
@@ -18,5 +19,13 @@ public class RedissonClient {
         return Redisson.create(config);
     }
 
+
+    public static void main(String[] args) {
+        org.redisson.api.RedissonClient redissonClient = RedissonClient.getRedissonClient();
+        RLock lock = redissonClient.getLock("");
+        lock.lock();
+        boolean locked = lock.isLocked();
+        lock.unlock();
+    }
 
 }
