@@ -1,4 +1,4 @@
-package com.bmsoft.test;
+package com.bmsoft.test.base;
 
 import com.bmsoft.entity.Car;
 import com.bmsoft.entity.User;

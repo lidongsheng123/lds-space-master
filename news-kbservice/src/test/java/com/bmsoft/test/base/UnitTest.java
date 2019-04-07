@@ -1,9 +1,8 @@
-package com.bmsoft.test;
+package com.bmsoft.test.base;
 
 import com.bmsoft.lock.DistributedLock;
 import com.bmsoft.lock.RedissonClient;
 import org.junit.Test;
-import org.redisson.Redisson;
 import org.redisson.api.RLock;
 
 /**

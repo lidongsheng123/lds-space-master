@@ -1,4 +1,4 @@
-package com.bmsoft.test;
+package com.bmsoft.test.base;
 
 import com.alibaba.fastjson.JSON;
 import com.bmsoft.dao.UserDao;

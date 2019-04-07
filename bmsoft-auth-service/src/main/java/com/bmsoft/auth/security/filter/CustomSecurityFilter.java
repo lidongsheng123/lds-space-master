@@ -9,12 +9,13 @@ import org.springframework.security.access.intercept.AbstractSecurityInterceptor
 import org.springframework.security.access.intercept.InterceptorStatusToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.web.FilterInvocation;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.*;
 import java.io.IOException;
 
-
+@Component
 public class CustomSecurityFilter extends AbstractSecurityInterceptor implements Filter {
     private Logger logger = LoggerFactory.getLogger(CustomSecurityFilter.class);
 

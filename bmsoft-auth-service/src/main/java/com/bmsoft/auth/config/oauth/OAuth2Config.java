@@ -3,6 +3,7 @@ package com.bmsoft.auth.config.oauth;
 import com.bmsoft.auth.security.CustomAuthorizationTokenServices;
 import com.bmsoft.auth.security.CustomRedisTokenStore;
 import com.bmsoft.auth.security.CustomTokenEnhancer;
+import com.bmsoft.auth.security.filter.CustomSecurityFilter;
 import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +64,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        //security.addTokenEndpointAuthenticationFilter(new CustomSecurityFilter());
+        security.addTokenEndpointAuthenticationFilter(new CustomSecurityFilter());
         security
                 .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()");
@@ -71,6 +72,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        //配置客户端认证
         clients.withClientDetails(clientDetailsService());
     }
 

@@ -1,4 +1,4 @@
-package com.bmsoft.test;
+package com.bmsoft.test.base;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
