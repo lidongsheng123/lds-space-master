@@ -7,7 +7,7 @@
     <groupId>com.bm.freamwork</groupId>
     <artifactId>bmsoft-rbac</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <description>基于shiro RBAC权限模式</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
