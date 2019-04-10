@@ -8,7 +8,7 @@
     <artifactId>bmsoft-spring-mvc</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
+    <description>手动实现迷你版spring mvc 框架</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <servlet.api.version>2.4</servlet.api.version>
