@@ -1,4 +1,4 @@
-package com.bmsoft.lock;
+package com.bmsoft.distributed.lock.redis;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,4 +1,4 @@
-package com.bmsoft.lock;
+package com.bmsoft.distributed.lock.redis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

@@ -1,4 +1,4 @@
-package com.bmsoft.lock;
+package com.bmsoft.distributed.lock.redis;
 
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
