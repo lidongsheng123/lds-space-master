@@ -112,7 +112,6 @@ public class DistributedLock implements Lock, Watcher {
             if (CURRENT_LOCK.equals(firstNode)) {
                 return true;
             }
-
             //查看比自己小的节点
             SortedSet<String> lessThanMe = ((TreeSet<String>) sortedSet).headSet(CURRENT_LOCK);
             if (!lessThanMe.isEmpty()) {
