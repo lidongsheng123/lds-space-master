@@ -1,14 +1,14 @@
-package com.bmsoft.test.base;
+package com.bmsoft.distrituted.lock.test;
 
-import com.bmsoft.lock.DistributedLock;
-import com.bmsoft.lock.RedissonClient;
+import com.bmsoft.distributed.lock.redis.DistributedLock;
+import com.bmsoft.distributed.lock.redis.RedissonClient;
 import org.junit.Test;
 import org.redisson.api.RLock;
 
 /**
  * @author 李东升
  * @version 1.0.0
- * @ClassName UnitTest.java
+ * @ClassName com.bmsoft.distrituted.lock.test.UnitTest.java
  * @Description TODO
  * @createTime 2018年10月26日 12:38:00
  */
@@ -42,7 +42,7 @@ public class UnitTest extends Thread {
 
 
     @Test
-    public  void  test01(){
+    public void test01() {
         org.redisson.api.RedissonClient client = RedissonClient.getRedissonClient();
         RLock abc = client.getLock("abc");
         System.out.println(abc);
