@@ -72,7 +72,7 @@ public class RpcServer {
             //将服务注册到注册中心
             for (String serviceName: handlerMap.keySet()){
                  registerCenter.register(serviceName,serviceAddress);
-                System.out.println("注册服务成功："+serviceName+"->"+serviceAddress);
+                 System.out.println("注册服务成功："+serviceName+"->"+serviceAddress);
             }
             while (true){
                 Socket socket = serverSocket.accept();

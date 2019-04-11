@@ -1,5 +1,6 @@
 package com.bmsoft.rmi.service;
 
+import com.bmsoft.rmi.HelloService;
 import com.bmsoft.rmi.service.rpc.anno.RpcAnnotation;
 
 /**
@@ -8,7 +9,7 @@ import com.bmsoft.rmi.service.rpc.anno.RpcAnnotation;
  * @author: 李东升
  * @create: 2019-04-10 21:06
  **/
-@RpcAnnotation(value = HelloService.class,version = "2")
+@RpcAnnotation(value = HelloService.class)
 public class HelloServiceImpl2 implements HelloService {
 
     @Override

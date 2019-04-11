@@ -1,5 +1,6 @@
 package com.bmsoft.rmi.service;
 
+import com.bmsoft.rmi.HelloService;
 import com.bmsoft.rmi.service.rpc.RpcServer;
 import com.bmsoft.rmi.service.rpc.zk.IRegisterCenter;
 import com.bmsoft.rmi.service.rpc.zk.RegisterCenterImpl;

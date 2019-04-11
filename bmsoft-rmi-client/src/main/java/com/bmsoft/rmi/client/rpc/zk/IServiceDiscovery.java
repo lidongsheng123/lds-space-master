@@ -1,4 +1,4 @@
-package com.bmsoft.rmi.client.rmi.zk;
+package com.bmsoft.rmi.client.rpc.zk;
 
 
 /**

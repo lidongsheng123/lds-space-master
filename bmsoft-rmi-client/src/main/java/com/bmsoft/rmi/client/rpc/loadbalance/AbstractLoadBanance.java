@@ -1,4 +1,4 @@
-package com.bmsoft.rmi.client.rmi.loadbalance;
+package com.bmsoft.rmi.client.rpc.loadbalance;
 
 import java.util.List;
 

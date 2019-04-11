@@ -1,5 +1,6 @@
 package com.bmsoft.rmi.service;
 
+import com.bmsoft.rmi.HelloService;
 import com.bmsoft.rmi.service.rpc.RpcServer;
 import com.bmsoft.rmi.service.rpc.zk.IRegisterCenter;
 import com.bmsoft.rmi.service.rpc.zk.RegisterCenterImpl;
@@ -16,7 +17,7 @@ public class ServerDemo {
         HelloService helloService = new HelloServiceImpl();
         IRegisterCenter registerCenter = new RegisterCenterImpl();
         RpcServer rpcServer = new RpcServer(registerCenter, "127.0.0.1:8080");
-        rpcServer.bind();
+        rpcServer.bind(helloService);
         rpcServer.publisher();
         System.in.read();
     }

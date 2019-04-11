@@ -1,5 +1,6 @@
 package com.bmsoft.rmi.service;
 
+import com.bmsoft.rmi.HelloService;
 import com.bmsoft.rmi.service.rpc.RpcServer;
 import com.bmsoft.rmi.service.rpc.zk.IRegisterCenter;
 import com.bmsoft.rmi.service.rpc.zk.RegisterCenterImpl;
@@ -13,8 +14,8 @@ import java.io.IOException;
  */
 public class ServerDemo1 {
     public static void main(String[] args) throws IOException {
-        IRegisterCenter registerCenter = new RegisterCenterImpl();
         HelloService helloService2 = new HelloServiceImpl2();
+        IRegisterCenter registerCenter = new RegisterCenterImpl();
         RpcServer rpcServer = new RpcServer(registerCenter, "127.0.0.1:8081");
         rpcServer.bind(helloService2);
         rpcServer.publisher();

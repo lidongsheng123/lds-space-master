@@ -1,4 +1,4 @@
-package com.bmsoft.rmi.service.rpc;
+package com.bmsoft.rmi;
 
 import lombok.Data;
 

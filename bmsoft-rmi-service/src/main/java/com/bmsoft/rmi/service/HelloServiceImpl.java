@@ -1,5 +1,6 @@
 package com.bmsoft.rmi.service;
 
+import com.bmsoft.rmi.HelloService;
 import com.bmsoft.rmi.service.rpc.anno.RpcAnnotation;
 
 /**

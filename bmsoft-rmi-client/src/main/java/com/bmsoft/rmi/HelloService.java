@@ -1,4 +1,4 @@
-package com.bmsoft.rmi.service;
+package com.bmsoft.rmi;
 
 /**
  * @program: lds-space-master
