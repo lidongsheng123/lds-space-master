@@ -1,6 +1,7 @@
 package com.bmsoft.breakpoint.download;
 
-import com.bmsoft.breakpoint.download.entity.MultiTheradDownLoad;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @program: lds-space-master
@@ -8,14 +9,9 @@ import com.bmsoft.breakpoint.download.entity.MultiTheradDownLoad;
  * @author: 李东升
  * @create: 2019-04-18 09:58
  **/
+@SpringBootApplication
 public class App {
-
     public static void main(String[] args) {
-        int threadNum = 4;
-        String filepath = "https://media.w3.org/2010/05/sintel/trailer.mp4";
-
-        MultiTheradDownLoad load = new MultiTheradDownLoad(filepath ,threadNum);
-        load.doDownloadPart();
-
+        SpringApplication.run(App.class, args).start();
     }
 }

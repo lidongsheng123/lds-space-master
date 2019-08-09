@@ -1,6 +1,6 @@
 package javax.core.common.jdbc.datasource;
 
-import org.springframework.beans.factory.annotation.Configurable;
+
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /** 

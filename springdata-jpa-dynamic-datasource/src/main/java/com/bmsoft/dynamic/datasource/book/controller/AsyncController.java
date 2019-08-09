@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-
 /**
  * @program: lds-space-master
  * @description: 异步测试
@@ -24,6 +22,6 @@ public class AsyncController {
         long currentTimeMillis = System.currentTimeMillis();
         asyncTask.task();
         long currentTimeMillis1 = System.currentTimeMillis();
-        return "task任务总耗时:"+(currentTimeMillis1-currentTimeMillis)+"ms";
+        return "task任务总耗时:" + (currentTimeMillis1 - currentTimeMillis) + "ms";
     }
 }
