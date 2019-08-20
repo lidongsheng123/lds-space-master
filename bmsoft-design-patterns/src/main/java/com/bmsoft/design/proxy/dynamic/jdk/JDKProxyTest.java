@@ -2,6 +2,10 @@ package com.bmsoft.design.proxy.dynamic.jdk;
 
 import com.bmsoft.design.proxy.PerSon;
 import com.bmsoft.design.proxy.Son;
+import sun.misc.ProxyGenerator;
+
+import java.io.FileOutputStream;
+import java.util.HashMap;
 
 /**
  * @program: lds-space-master
@@ -14,8 +18,13 @@ public class JDKProxyTest {
     public static void main(String[] args) {
         try {
             PerSon obj = (PerSon) new JDKMeipo().getInstance(new Son());
-            System.out.println(obj.getClass());
+
             obj.findLove();
+            byte[] proxy0 = ProxyGenerator.generateProxyClass("$Proxy0", new Class[]{PerSon.class});
+            FileOutputStream os = new FileOutputStream("E://$Proxy0.class");
+            os.write(proxy0);
+            os.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

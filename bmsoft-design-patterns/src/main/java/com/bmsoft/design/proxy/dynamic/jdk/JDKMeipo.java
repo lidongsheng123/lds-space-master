@@ -24,8 +24,6 @@ public class JDKMeipo implements InvocationHandler {
 
         Class<? extends PerSon> clazz = target.getClass();
 
-        Method addd = clazz.getMethod("addd");
-
         return Proxy.newProxyInstance(clazz.getClassLoader(), clazz.getInterfaces(), this);
     }
 

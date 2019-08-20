@@ -29,8 +29,10 @@ public class MyController {
     @RequestMapping("/query.json")
     public ModelAndView query(HttpServletRequest request, HttpServletResponse response,
                               @RequestParam("name") String name) {
+       
         String result = queryService.query(name);
         System.out.println(result);
+
         return out(response, result);
     }
 

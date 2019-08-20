@@ -12,6 +12,7 @@ import com.bmsoft.framework.core.BeanFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -66,6 +67,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
 
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : this.beanDefinitionMap.entrySet()) {
             String beanName = beanDefinitionEntry.getKey();
+
             if (!beanDefinitionEntry.getValue().isLazyInit()) {
                 getBean(beanName);
             }
@@ -91,7 +93,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
 
         Class clazz = instance.getClass();
 
-        //不是所有牛奶都叫特仑苏
+
         if (!(clazz.isAnnotationPresent(Controller.class) || clazz.isAnnotationPresent(Service.class))) {
             return;
         }
@@ -146,6 +148,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
                     this.beanDefinitionMap.put(beanDefinition.getFactoryBeanName(), beanDefinition);
                 }
 
+
                 //将此类的接口 父类跟此类相关联
                 Class<?>[] interfaces = beanClass.getInterfaces();
                 for (Class<?> i : interfaces) {
@@ -199,7 +202,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
             //在实例初始化以后调用一次
             beanPostProcessor.postProcessAfterInitialization(instance, beanName);
 
-            //populateBean(instance);
+            populateBean(instance);
 
             //通过这样一调用，相当于给我们自己留有了可操作的空间   获取代理对象
             return this.beanWrapperMap.get(beanName).getWrappedInstance();
@@ -247,7 +250,6 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
                 instance = clazz.newInstance();
                 this.beanCacheMap.put(className, instance);
             }
-
             return instance;
         } catch (Exception e) {
             e.printStackTrace();
