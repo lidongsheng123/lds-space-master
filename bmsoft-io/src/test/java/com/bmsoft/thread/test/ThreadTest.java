@@ -14,11 +14,16 @@ public class ThreadTest {
         t1.start();
         t1.join();
 
-        new Thread(() -> {
+
+        Thread t2 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + ":" + 2);
-        }).start();
-        new Thread(() -> {
+        });
+        t2.start();
+        t2.join();
+        Thread t3 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + ":" + 3);
-        }).start();
+        });
+        t3.start();
+        t3.join();
     }
 }

@@ -27,7 +27,6 @@ public class BIOServer {
     //这个方法不会被大量并发访问，不太需要考虑效率，直接进行方法同步就行了
     public synchronized static void start(int port) throws IOException {
         if (serverSocket != null) return;
-
         try {
             //通过构造函数创建ServerSocket
             //如果端口合法且空闲，服务端就监听成功

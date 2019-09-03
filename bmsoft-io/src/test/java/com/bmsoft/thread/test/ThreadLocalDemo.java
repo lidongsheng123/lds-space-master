@@ -27,31 +27,33 @@ public class ThreadLocalDemo {
     static Index index = new Index();
     private static ThreadLocal<Index> indexLocal = new ThreadLocal<Index>() {
         protected Index initialValue() {
-            return index;
+            return new Index();
         }
     };
 
     public static void main(String[] args) {
 
-        for (int i = 0; i < 5; i++) {
+     /*   for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 num += 5;
                 System.out.println(Thread.currentThread().getName() + ":" + num);
             }).start();
-        }
-        for (int i = 0; i < 5; i++) {
+        }*/
+      /*  for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 int num = localNum.get().intValue() + 5;
                 System.out.println(Thread.currentThread().getName() + ":" + num);
             }).start();
         }
-
+*/
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 index = indexLocal.get();
                 index.incr();
                 System.out.println(Thread.currentThread().getName() + ":" + index.num);
+                indexLocal.remove();
             }).start();
         }
+
     }
 }
