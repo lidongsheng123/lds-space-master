@@ -43,7 +43,6 @@ public class BIOClient {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 in = null;
 
             }
@@ -59,7 +58,6 @@ public class BIOClient {
                     e.printStackTrace();
                 }
                 socket = null;
-
             }
 
         }
