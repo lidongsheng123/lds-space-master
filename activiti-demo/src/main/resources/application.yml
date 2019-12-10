@@ -1,0 +1,19 @@
+spring:
+   datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/activiti?useSSL=true&characterEncoding=UTF-8&serverTimezone=UTC&nullCatalogMeansCurrent=true
+     username: root
+     password: root
+
+
+   activiti:
+    check-process-definitions: true #自动检查、部署流程定义文件
+    database-schema-update: true #自动更新数据库结构
+    #流程定义文件存放目录
+    process-definition-location-prefix: classpath*:/processes/
+
+server:
+  port: 9001
+
+
+

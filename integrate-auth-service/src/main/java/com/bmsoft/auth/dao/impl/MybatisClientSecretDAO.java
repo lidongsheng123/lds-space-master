@@ -16,23 +16,23 @@ import java.util.UUID;
 public class MybatisClientSecretDAO implements ClientSecretDAO {
 
     @Autowired
-    private ClientSecretMapper mapper;
+    private ClientSecretMapper clientSecretMapper;
 
     @Override
     public int create(ClientSecret clientSecret) {
-        return mapper.insert(clientSecret);
+        return clientSecretMapper.insert(clientSecret);
     }
 
     @Override
     public String getScope(String clientId, String clientSecret) {
-        return mapper.getScope(clientId,clientSecret);
+        return clientSecretMapper.getScope(clientId,clientSecret);
     }
 
     @Override
     public List<ClientSecret> get(ClientSecret clientSecret) {
         Map<String, Object> params = new HashMap<>();
         params.put("clientId", clientSecret.getClientId());
-        return mapper.selectByParams(params);
+        return clientSecretMapper.selectByParams(params);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MybatisClientSecretDAO implements ClientSecretDAO {
         params.put("tenantId", tenantId);
         params.put("status", status.toString());
 
-        return mapper.updateStatus(params);
+        return clientSecretMapper.updateStatus(params);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class MybatisClientSecretDAO implements ClientSecretDAO {
         params.put("clientId", clientId);
         params.put("status", status.toString());
 
-        return mapper.updateStatus(params);
+        return clientSecretMapper.updateStatus(params);
     }
 
     @Override
@@ -62,6 +62,6 @@ public class MybatisClientSecretDAO implements ClientSecretDAO {
         params.put("purpose", clientSecret.getPurpose());
         params.put("status", clientSecret.getStatus().toString());
 
-        return mapper.updateByParams(params);
+        return clientSecretMapper.updateByParams(params);
     }
 }
