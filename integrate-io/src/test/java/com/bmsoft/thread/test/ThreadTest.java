@@ -1,5 +1,7 @@
 package com.bmsoft.thread.test;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @program: lds-space-master
  * @description: 线程测试
@@ -8,22 +10,44 @@ package com.bmsoft.thread.test;
  **/
 public class ThreadTest {
     public static void main(String[] args) throws InterruptedException {
-        Thread t1 = new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + ":" + 1);
-        });
-        t1.start();
-        t1.join();
+        new Thread(() -> {
+            try {
+                while (true) {
+                    TimeUnit.SECONDS.sleep(100);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }, "Time_Waiting_Thread").start();
 
+        new Thread(() -> {
+            while (true) {
+                synchronized (ThreadTest.class) {
+                    try {
+                        ThreadTest.class.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, "Wait_Tread").start();
 
-        Thread t2 = new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + ":" + 2);
-        });
-        t2.start();
-        t2.join();
-        Thread t3 = new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + ":" + 3);
-        });
-        t3.start();
-        t3.join();
+        new Thread(new BlockedDemo(),"blocked01").start();
+        new Thread(new BlockedDemo(),"blocked02").start();
+    }
+
+    static class BlockedDemo extends Thread {
+        @Override
+        public void run() {
+            synchronized (BlockedDemo.class) {
+                while (true) {
+                    try {
+                        TimeUnit.SECONDS.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 }

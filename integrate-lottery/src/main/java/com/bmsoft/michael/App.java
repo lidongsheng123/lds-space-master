@@ -1,5 +1,7 @@
 package com.bmsoft.michael;
 
+import org.springframework.util.Assert;
+
 /**
  * Hello world!
  */

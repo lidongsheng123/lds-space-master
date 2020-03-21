@@ -32,7 +32,7 @@ public interface WorkFlowService {
     public void startProcess(Integer leaveBillId);
 
     //查询当前登陆用户的待办任务
-    public DataGridView queryCurrentUserTask(WorkFlowVo workFlowVo);
+    public  DataGridView queryCurrentUserTask(WorkFlowVo workFlowVo);
 
 
     //根据任务ID查询连线信息

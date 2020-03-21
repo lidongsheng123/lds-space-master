@@ -30,7 +30,7 @@ public class ClientSocketChannelDemo {
         /*服务器的ip地址+端口port*/
         private InetSocketAddress remoteAddress;
 
-        public TCPEchoClient(String name, InetSocketAddress remoteAddress){
+        TCPEchoClient(String name, InetSocketAddress remoteAddress){
             this.name = name;
             this.remoteAddress = remoteAddress;
         }
@@ -40,7 +40,6 @@ public class ClientSocketChannelDemo {
 
             /*创建解码器*/
             Charset utf8 = Charset.forName("UTF-8");
-
             Selector selector;
 
             try {
@@ -65,7 +64,7 @@ public class ClientSocketChannelDemo {
 
                 /*等待三次握手完成*/
                 while(!sc.finishConnect()){
-                    ;
+
                 }
 
                 System.out.println(name + " " + "finished connection");

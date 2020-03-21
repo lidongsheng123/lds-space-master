@@ -14,7 +14,9 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Data
 public class User {
-    private String name;
+
+
+    private  String name;
     private Integer age;
     private String createTime;
 
@@ -23,6 +25,8 @@ public class User {
         this.age = age;
         this.createTime = createTime;
     }
+
+
 
     public static void main(String[] args) {
         List<User> users = Lists.newArrayList(
@@ -35,14 +39,13 @@ public class User {
 
         users.sort(Comparator.comparing(User::getCreateTime).reversed());
         System.currentTimeMillis();
-       // System.out.println(users);
+        // System.out.println(users);
 
         ConcurrentHashMap<String, Object> map = new ConcurrentHashMap<>();
         Object put = map.put("1", 1);
         Object put1 = map.put("1", 1);
 
         Collection<Object> values = map.values();
-
 
     }
 }
