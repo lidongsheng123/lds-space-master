@@ -16,7 +16,7 @@ public class App {
         });
         thread.start();
         Thread.sleep(1000);
-        stop=true; //true
+        stop = true; //true
 
     }
 }
