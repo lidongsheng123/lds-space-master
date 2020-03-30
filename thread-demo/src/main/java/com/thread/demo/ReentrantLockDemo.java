@@ -1,5 +1,6 @@
 package com.thread.demo;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -8,11 +9,26 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReentrantLockDemo {
 
-    static ReentrantLock lock=new ReentrantLock();
+    static ReentrantLock lock = new ReentrantLock();
+    private static int i;
+
+
+    public  static void add() {
+        try {
+            lock.lock();
+            TimeUnit.SECONDS.sleep(1000);
+            i++;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
 
     public static void main(String[] args) {
-        lock.lock();
+        for (int j = 0; j < 100; j++) {
+            new Thread(ReentrantLockDemo::add).start();
 
-        lock.unlock();
+        }
     }
 }
