@@ -1,8 +1,11 @@
 package com.bmsoft.distributed.lock.redis;
 
+import redis.clients.jedis.BitOP;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -15,6 +18,7 @@ import java.util.UUID;
 public class DistributedLock {
 
     //获得锁
+
     /**
      * @param lockName       锁的名词
      * @param acquireTimeout 获得锁的超时时间
@@ -29,6 +33,10 @@ public class DistributedLock {
         try {
             try {
                 jedis = JedisClient.getJedis();
+                jedis.setbit("20200401", 1, true);
+                jedis.setbit("20200401", 2, true);
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -110,7 +118,28 @@ public class DistributedLock {
         return isRelease;
     }
 
+    private void updateUser(long userId, String time) {
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        time = sdf.format(new Date());
+        JedisClient jedis = new JedisClient();
+
+
+    }
+
+    public static void main(String[] args) throws Exception {
+        Jedis jedis = JedisClient.getJedis();
+        jedis.setbit("20200401", 1, true);
+        jedis.setbit("20200401", 2, true);
+        jedis.setbit("20200402", 1, true);
+        jedis.setbit("20200403", 2, true);
+
+        //Long count = jedis.bitcount("20200401");
+        jedis.bitop(BitOP.OR,"result","20200401","20200403");
+
+
+
+    }
 
 
 }
