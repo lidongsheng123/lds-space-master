@@ -15,8 +15,10 @@ public class ReentrantLockDemo {
 
     public  static void add() {
         try {
+
             lock.lock();
             TimeUnit.SECONDS.sleep(1000);
+
             i++;
         } catch (Exception e) {
             e.printStackTrace();
