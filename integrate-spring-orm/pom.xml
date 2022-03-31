@@ -10,7 +10,7 @@
     <description>手动编写ORM 框架</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.0.2.RELEASE</spring.version>
+        <spring.version>5.3.18</spring.version>
     </properties>
 
     <dependencies>
